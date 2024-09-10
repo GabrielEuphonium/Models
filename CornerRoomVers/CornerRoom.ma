@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: CornerRoom.ma
-//Last modified: Tue, Sep 10, 2024 09:22:22 AM
+//Last modified: Tue, Sep 10, 2024 09:25:17 AM
 //Codeset: 1252
 requires maya "2024";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.3.4.1";
@@ -11,12 +11,12 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22631)";
-fileInfo "UUID" "C6D59409-4BCB-F303-D485-3BB94433896D";
+fileInfo "UUID" "D4AD477D-40E4-4C1C-0220-8EB1119D9AF7";
 createNode transform -s -n "persp";
 	rename -uid "9E9EA132-4E88-754D-747A-C5A14FBC2B07";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 1.8751623445221737 1.9021799243685964 0.3285452276881814 ;
-	setAttr ".r" -type "double3" -15.600000000004197 65.200000000000443 -1.89566032365073e-15 ;
+	setAttr ".t" -type "double3" 12.986827226442786 7.4728859429721837 0.02705832135366679 ;
+	setAttr ".r" -type "double3" -26.400000000003669 89.999999999997954 0 ;
 	setAttr ".rp" -type "double3" 2.3311769545935045e-16 -2.9139711932418806e-17 0 ;
 	setAttr ".rpt" -type "double3" -1.2299912348983772e-15 7.4444778236430873e-16 1.7460918905559229e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
@@ -26,7 +26,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".ncp" 0.0032808398950131233;
 	setAttr ".fcp" 328.08398950131232;
 	setAttr ".fd" 0.16404199475065617;
-	setAttr ".coi" 1.4871549367795158;
+	setAttr ".coi" 15.074149370089136;
 	setAttr ".ow" 0.32808398950131235;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
@@ -376,6 +376,62 @@ createNode transform -n "book2";
 	setAttr ".spt" -type "double3" 2.3311769545935045e-16 0.40000001902342397 0 ;
 createNode mesh -n "bookShape2" -p "book2";
 	rename -uid "BCACF155-449E-DDC6-97BF-A1A012148E91";
+	setAttr -k off ".v";
+	setAttr ".vir" yes;
+	setAttr ".vif" yes;
+	setAttr -s 6 ".gtag";
+	setAttr ".gtag[0].gtagnm" -type "string" "back";
+	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[2]";
+	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
+	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[3]";
+	setAttr ".gtag[2].gtagnm" -type "string" "front";
+	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
+	setAttr ".gtag[3].gtagnm" -type "string" "left";
+	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[5]";
+	setAttr ".gtag[4].gtagnm" -type "string" "right";
+	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
+	setAttr ".gtag[5].gtagnm" -type "string" "top";
+	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
+	setAttr ".pv" -type "double2" 0.5 0.375 ;
+	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
+	setAttr ".cuvs" -type "string" "map1";
+	setAttr ".dcc" -type "string" "Ambient+Diffuse";
+	setAttr ".covm[0]"  0 1 1;
+	setAttr ".cdvm[0]"  0 1 1;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
+createNode transform -n "book3";
+	rename -uid "2E6BCE1E-4AFA-D6A3-0297-D2A3716AA36A";
+	setAttr ".t" -type "double3" -0.59339377018371331 1.5000000337916095 -0.80236652183236712 ;
+	setAttr ".r" -type "double3" 0 -70.718809782778109 0 ;
+	setAttr ".s" -type "double3" 0.75 0.2 1 ;
+	setAttr ".rp" -type "double3" 1.1655884772967523e-16 -0.10000000475585599 -2.3311769545935045e-16 ;
+	setAttr ".sp" -type "double3" -1.1655884772967523e-16 -0.50000002377927988 -2.3311769545935045e-16 ;
+	setAttr ".spt" -type "double3" 2.3311769545935045e-16 0.40000001902342397 0 ;
+createNode mesh -n "bookShape3" -p "book3";
+	rename -uid "7FDA7D8F-4329-09F9-1DCE-EC8F05BDFF5B";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
@@ -937,7 +993,7 @@ createNode deleteComponent -n "deleteComponent9";
 	rename -uid "F42E6D3A-4E5E-1AA1-DBEE-D08B97769614";
 	setAttr ".dc" -type "componentList" 1 "f[12:15]";
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "A9034FD8-4B85-AE92-9FB3-C0A8BDD8E765";
+	rename -uid "6F13730A-459F-4A58-6DEA-3FBC805BEF24";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
@@ -962,7 +1018,7 @@ select -ne :standardSurface1;
 	setAttr ".bc" -type "float3" 0.40000001 0.40000001 0.40000001 ;
 	setAttr ".sr" 0.5;
 select -ne :initialShadingGroup;
-	setAttr -s 6 ".dsm";
+	setAttr -s 7 ".dsm";
 	setAttr ".ro" yes;
 select -ne :initialParticleSE;
 	setAttr ".ro" yes;
@@ -1101,5 +1157,6 @@ connectAttr "TablewhiteboxShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "LadderComplexShape.iog.og[0]" ":initialShadingGroup.dsm" -na;
 connectAttr "bookShape.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "bookShape2.iog" ":initialShadingGroup.dsm" -na;
+connectAttr "bookShape3.iog" ":initialShadingGroup.dsm" -na;
 connectAttr "groupId1.msg" ":initialShadingGroup.gn" -na;
 // End of CornerRoom.ma
