@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: CornerRoom.ma
-//Last modified: Tue, Sep 10, 2024 09:27:22 AM
+//Last modified: Tue, Sep 10, 2024 09:37:44 AM
 //Codeset: 1252
 requires maya "2024";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.3.4.1";
@@ -11,12 +11,12 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22631)";
-fileInfo "UUID" "1CE403B8-49D8-A79A-75F4-86807A90A20C";
+fileInfo "UUID" "DDEDF02F-443C-0B5B-18BE-4393DC2BAD2A";
 createNode transform -s -n "persp";
 	rename -uid "9E9EA132-4E88-754D-747A-C5A14FBC2B07";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 7.6414828797205514 5.1087687313421943 3.9374106353182441 ;
-	setAttr ".r" -type "double3" -24.599999999998207 416.79999999999569 2.9042807706993707e-15 ;
+	setAttr ".t" -type "double3" 12.986827226442786 7.4728859429721837 0.02705832135366679 ;
+	setAttr ".r" -type "double3" -26.400000000003669 89.999999999997954 0 ;
 	setAttr ".rp" -type "double3" 2.3311769545935045e-16 -2.9139711932418806e-17 0 ;
 	setAttr ".rpt" -type "double3" -1.2299912348983772e-15 7.4444778236430873e-16 1.7460918905559229e-15 ;
 createNode camera -s -n "perspShape" -p "persp";
@@ -26,7 +26,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".ncp" 0.0032808398950131233;
 	setAttr ".fcp" 328.08398950131232;
 	setAttr ".fd" 0.16404199475065617;
-	setAttr ".coi" 8.7330373701492494;
+	setAttr ".coi" 15.074149370089136;
 	setAttr ".ow" 0.32808398950131235;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
@@ -208,7 +208,7 @@ createNode mesh -n "polySurfaceShape1" -p "LadderComplex";
 	setAttr -s 2 ".pt[0:1]" -type "float3"  9.7776653e-10 3.9110661e-09 
 		-3.9110661e-09 -9.7776653e-10 -3.9110661e-09 3.9110661e-09;
 	setAttr -s 48 ".vt[0:47]"  -1.64022231 3.16144443 3.20227575 -1.45024109 3.16144443 3.20227575
-		 -0.55015874 3.16144443 3.20227575 -0.36017793 3.16144443 3.20227575 -1.64022231 3.38865113 3.20227718
+		 -0.55015874 3.16144443 3.20227575 -0.3601779 3.16144443 3.20227575 -1.64022231 3.38865113 3.20227718
 		 -1.45024109 3.38865113 3.20227718 -0.55015868 3.38865113 3.20227718 -0.36017802 3.38865113 3.20227718
 		 -1.64022231 3.83621216 3.20227718 -1.45024109 3.83621216 3.20227718 -0.55015868 3.83621216 3.20227718
 		 -0.36017802 3.83621216 3.20227718 -1.64022231 4.063420296 3.20227718 -1.45024097 4.063420296 3.20227718
@@ -217,7 +217,7 @@ createNode mesh -n "polySurfaceShape1" -p "LadderComplex";
 		 -1.64022231 3.83621216 3.019423962 -1.45024109 3.83621216 3.019423962 -0.55015868 3.83621216 3.019423962
 		 -0.36017802 3.83621216 3.019423962 -1.64022231 3.38865113 3.019423962 -1.45024109 3.38865113 3.019423962
 		 -0.55015868 3.38865113 3.019423962 -0.36017802 3.38865113 3.019423962 -1.64022231 3.16144443 3.019422531
-		 -1.45024109 3.16144443 3.019422531 -0.55015874 3.16144443 3.019422531 -0.36017793 3.16144443 3.019422531
+		 -1.45024109 3.16144443 3.019422531 -0.55015874 3.16144443 3.019422531 -0.3601779 3.16144443 3.019422531
 		 -1.64022231 4.063420296 3.20227718 -1.45024097 4.063420296 3.20227718 -1.45024097 4.063420296 3.019423962
 		 -1.64022231 4.063420296 3.019423962 -0.55015868 4.063420296 3.20227718 -0.36017802 4.063420296 3.20227718
 		 -0.36017802 4.063420296 3.019423962 -0.55015868 4.063420296 3.019423962 -1.64022231 4.4535799 3.20227718
@@ -479,20 +479,20 @@ createNode mesh -n "bookShape3" -p "book3";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "AD663A0B-4C62-B47D-9EE7-EBAF21E38A67";
+	rename -uid "1B1F5A18-4AFE-9382-DC20-06A8688367BD";
 	setAttr -s 3 ".lnk";
 	setAttr -s 3 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "07DBB906-4B1A-DAFB-36A7-E88ADB497789";
+	rename -uid "B57835BE-4004-BE2B-93D8-67892113F65A";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "FC24E12C-4F74-1B68-4A00-0CA005D9A24E";
+	rename -uid "4FDFEDC7-4122-4562-A101-0DB209A1D969";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "8C890899-4930-5029-DF20-79B690A3BE83";
+	rename -uid "115559BE-481A-B1DF-67DC-51B3D2342D03";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "03B3876F-41A2-5AC6-8DF7-28A841F0ED17";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "C3397F8E-406B-DFA7-1F5D-0C8C579FBCF1";
+	rename -uid "836D81AE-4EFE-0318-A410-CDA8F118FDE5";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "74D8369B-4179-E174-1631-D18C40A0E787";
 	setAttr ".g" yes;
@@ -993,7 +993,7 @@ createNode deleteComponent -n "deleteComponent9";
 	rename -uid "F42E6D3A-4E5E-1AA1-DBEE-D08B97769614";
 	setAttr ".dc" -type "componentList" 1 "f[12:15]";
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "EE2E8589-4197-DA40-A509-8683DC6DC83B";
+	rename -uid "72FD1EA4-4028-A3AE-3754-CB94D6E7791A";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
@@ -1040,8 +1040,6 @@ select -ne :defaultColorMgtGlobals;
 select -ne :hardwareRenderGlobals;
 	setAttr ".ctrs" 256;
 	setAttr ".btrs" 512;
-select -ne :ikSystem;
-	setAttr -s 4 ".sol";
 connectAttr "deleteComponent9.og" "CornerRoomShape.i";
 connectAttr "polyCube2.out" "BedShape.i";
 connectAttr "polyExtrudeFace2.out" "BedframeShape.i";
