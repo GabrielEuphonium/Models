@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: CornerRoom.ma
-//Last modified: Wed, Oct 02, 2024 11:32:47 AM
+//Last modified: Wed, Oct 02, 2024 11:38:07 AM
 //Codeset: 1252
 requires maya "2024";
 requires "stereoCamera" "10.0";
@@ -14,11 +14,11 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22631)";
-fileInfo "UUID" "50D620C7-408F-1D55-F762-42AD8F684884";
+fileInfo "UUID" "A1E738AA-4019-321D-56C3-55BE775C4296";
 createNode transform -s -n "persp";
 	rename -uid "9E9EA132-4E88-754D-747A-C5A14FBC2B07";
-	setAttr ".t" -type "double3" 25.296103613029366 13.811210226253426 7.163175078481709 ;
-	setAttr ".r" -type "double3" -31.799999999993545 1896.3999999996154 -2.5444437451708134e-14 ;
+	setAttr ".t" -type "double3" 12.714299700757445 2.9939986223986108 12.090381596556535 ;
+	setAttr ".r" -type "double3" -1.8000000000184129 1848.3999999996065 0 ;
 	setAttr ".rpt" -type "double3" 1.6469004999233582e-12 -1.738618294320861e-12 -4.3742340642166776e-13 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "48BD2813-405C-A81B-16F2-BC98FDAEF253";
@@ -28,7 +28,7 @@ createNode camera -s -n "perspShape" -p "persp";
 	setAttr ".ncp" 0.0032808398950131233;
 	setAttr ".fcp" 328.08398950131232;
 	setAttr ".fd" 0.16404199475065617;
-	setAttr ".coi" 20.963632685351932;
+	setAttr ".coi" 5.788805051186233;
 	setAttr ".ow" 0.32808398950131235;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
@@ -17408,8 +17408,13 @@ createNode groupId -n "groupId34";
 	setAttr ".ihi" 0;
 createNode aiPhysicalSky -n "aiPhysicalSky1";
 	rename -uid "A6B4FBFE-4D3A-BC23-2C36-1180EEF25B61";
+	setAttr ".ground_albedo" -type "float3" 0 0 0 ;
+	setAttr ".elevation" 20;
+	setAttr ".azimuth" 92.142860412597656;
+	setAttr ".sun_tint" -type "float3" 0.29139999 0.51539999 0.61930001 ;
+	setAttr ".intensity" 1.5;
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "D5651E03-4C88-9C51-E782-63A26D6A364B";
+	rename -uid "BCCF0930-47B3-1917-1286-5F9A1C1BBBE3";
 	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
