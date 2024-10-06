@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: Boat.ma
-//Last modified: Sat, Oct 05, 2024 09:31:16 PM
+//Last modified: Sat, Oct 05, 2024 09:33:13 PM
 //Codeset: 1252
 requires maya "2024";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.3.4.1";
@@ -11,17 +11,17 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22631)";
-fileInfo "UUID" "CBA63C1E-4406-D606-1F72-688173410123";
+fileInfo "UUID" "72D40F1A-42CA-A0BF-F33E-559EE4B95252";
 createNode transform -s -n "persp";
 	rename -uid "9FE219A1-4A12-2488-374F-5DA2EB72F06A";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" -0.0016915574362815766 3.7044395754437698 10.849969553185726 ;
-	setAttr ".r" -type "double3" -9.9383527296058283 13.400000000000224 0 ;
+	setAttr ".t" -type "double3" 2.2930053256974836 8.2152471408366843 11.865697235707188 ;
+	setAttr ".r" -type "double3" -25.538352729606174 17.000000000000394 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "B8E9A859-41B1-268A-C85A-52B03F2A3E3B";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 12.376913362195129;
+	setAttr ".coi" 15.337642844771974;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -363,6 +363,7 @@ createNode lambert -n "Water1";
 createNode shadingEngine -n "lambert2SG";
 	rename -uid "1AF70824-46A5-514B-2382-5FAFCA841CEC";
 	setAttr ".ihi" 0;
+	setAttr -s 2 ".dsm";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo1";
 	rename -uid "1FBE8207-454E-E381-5EE1-E5A010DB7578";
@@ -372,7 +373,6 @@ createNode lambert -n "Rock";
 createNode shadingEngine -n "lambert3SG";
 	rename -uid "91AC1E5B-47FB-2B31-1190-D7ADA9A3A6A8";
 	setAttr ".ihi" 0;
-	setAttr -s 2 ".dsm";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo2";
 	rename -uid "8FD6AEA5-40A9-69BC-D4B0-20A4AEAEFBAB";
@@ -401,10 +401,10 @@ createNode shadingEngine -n "lambert1SG";
 createNode materialInfo -n "materialInfo5";
 	rename -uid "47904036-42EF-F058-AF21-FA9E14F98565";
 createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "F16D1419-4FBB-C121-B7A1-42B7994E77FC";
+	rename -uid "3ADC3A08-475E-AD4B-1782-93A3C461A719";
 	setAttr ".sst" -type "string" "";
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "7EEE14D0-40E8-EB9D-60DC-05B647A2B5D6";
+	rename -uid "B847E6E6-425E-55F3-929E-16878C5588DB";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
 	setAttr ".tgi[0].vl" -type "double2" -44.047617297323995 -426.1904592551889 ;
 	setAttr ".tgi[0].vh" -type "double2" 717.85711433206404 44.047617297323995 ;
