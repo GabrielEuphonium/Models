@@ -1,6 +1,6 @@
 //Maya ASCII 2024 scene
 //Name: Boat.ma
-//Last modified: Sat, Oct 05, 2024 09:33:13 PM
+//Last modified: Sat, Oct 05, 2024 09:37:35 PM
 //Codeset: 1252
 requires maya "2024";
 requires -nodeType "aiOptions" -nodeType "aiAOVDriver" -nodeType "aiAOVFilter" "mtoa" "5.3.4.1";
@@ -11,17 +11,17 @@ fileInfo "product" "Maya 2024";
 fileInfo "version" "2024";
 fileInfo "cutIdentifier" "202310181224-69282f2959";
 fileInfo "osv" "Windows 11 Home v2009 (Build: 22631)";
-fileInfo "UUID" "72D40F1A-42CA-A0BF-F33E-559EE4B95252";
+fileInfo "UUID" "66C3A571-485C-F269-13DC-539BC9F14DB8";
 createNode transform -s -n "persp";
 	rename -uid "9FE219A1-4A12-2488-374F-5DA2EB72F06A";
 	setAttr ".v" no;
-	setAttr ".t" -type "double3" 2.2930053256974836 8.2152471408366843 11.865697235707188 ;
+	setAttr ".t" -type "double3" 2.2930053256979948 8.2152471408375174 11.865697235708849 ;
 	setAttr ".r" -type "double3" -25.538352729606174 17.000000000000394 0 ;
 createNode camera -s -n "perspShape" -p "persp";
 	rename -uid "B8E9A859-41B1-268A-C85A-52B03F2A3E3B";
 	setAttr -k off ".v" no;
 	setAttr ".fl" 34.999999999999993;
-	setAttr ".coi" 15.337642844771974;
+	setAttr ".coi" 15.337642844773919;
 	setAttr ".imn" -type "string" "persp";
 	setAttr ".den" -type "string" "persp_depth";
 	setAttr ".man" -type "string" "persp_mask";
@@ -78,34 +78,62 @@ createNode camera -s -n "sideShape" -p "side";
 	setAttr ".ai_translator" -type "string" "orthographic";
 createNode transform -n "Water";
 	rename -uid "5602C530-4831-74E9-092E-EC933A2D1086";
-	setAttr ".t" -type "double3" -3 0.75 -3 ;
-	setAttr ".s" -type "double3" 6 0.5 6 ;
-	setAttr ".rp" -type "double3" 1.0000002086162567 0.25 0 ;
-	setAttr ".sp" -type "double3" 0.16666670143604279 0.5 0 ;
-	setAttr ".spt" -type "double3" 0.83333350718021393 -0.25 0 ;
+	setAttr ".rp" -type "double3" -1.9999997913837433 1 -3 ;
+	setAttr ".sp" -type "double3" -1.9999997913837433 1 -3 ;
 createNode mesh -n "WaterShape" -p "Water";
 	rename -uid "7E651514-4075-67C1-2650-5398F465F3C8";
 	setAttr -k off ".v";
 	setAttr ".vir" yes;
 	setAttr ".vif" yes;
+	setAttr -s 6 ".gtag";
+	setAttr ".gtag[0].gtagnm" -type "string" "back";
+	setAttr ".gtag[0].gtagcmp" -type "componentList" 1 "f[2]";
+	setAttr ".gtag[1].gtagnm" -type "string" "bottom";
+	setAttr ".gtag[1].gtagcmp" -type "componentList" 1 "f[3]";
+	setAttr ".gtag[2].gtagnm" -type "string" "front";
+	setAttr ".gtag[2].gtagcmp" -type "componentList" 1 "f[0]";
+	setAttr ".gtag[3].gtagnm" -type "string" "left";
+	setAttr ".gtag[3].gtagcmp" -type "componentList" 1 "f[5]";
+	setAttr ".gtag[4].gtagnm" -type "string" "right";
+	setAttr ".gtag[4].gtagcmp" -type "componentList" 1 "f[4]";
+	setAttr ".gtag[5].gtagnm" -type "string" "top";
+	setAttr ".gtag[5].gtagcmp" -type "componentList" 1 "f[1]";
 	setAttr ".pv" -type "double2" 0.25 0.125 ;
 	setAttr ".uvst[0].uvsn" -type "string" "map1";
+	setAttr -s 14 ".uvst[0].uvsp[0:13]" -type "float2" 0.375 0 0.625 0 0.375
+		 0.25 0.625 0.25 0.375 0.5 0.625 0.5 0.375 0.75 0.625 0.75 0.375 1 0.625 1 0.875 0
+		 0.875 0.25 0.125 0 0.125 0.25;
 	setAttr ".cuvs" -type "string" "map1";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 4 ".pt";
-	setAttr ".pt[0]" -type "float3" 0.33333334 0 0 ;
-	setAttr ".pt[2]" -type "float3" 0.33333334 0 0 ;
-	setAttr ".pt[4]" -type "float3" 0.33333334 0 0 ;
-	setAttr ".pt[6]" -type "float3" 0.33333334 0 0 ;
+	setAttr -s 8 ".pt[0:7]" -type "float3"  -3.5 1 -0.5 -0.5 1 -0.5 -3.5 
+		0.5 -0.5 -0.5 0.5 -0.5 -3.5 0.5 -5.5 -0.5 0.5 -5.5 -3.5 1 -5.5 -0.5 1 -5.5;
+	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
+		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
+	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
+		 3 5 0 4 6 0 5 7 0 6 0 0 7 1 0;
+	setAttr -s 6 -ch 24 ".fc[0:5]" -type "polyFaces" 
+		f 4 0 5 -2 -5
+		mu 0 4 0 1 3 2
+		f 4 1 7 -3 -7
+		mu 0 4 2 3 5 4
+		f 4 2 9 -4 -9
+		mu 0 4 4 5 7 6
+		f 4 3 11 -1 -11
+		mu 0 4 6 7 9 8
+		f 4 -12 -10 -8 -6
+		mu 0 4 1 10 11 3
+		f 4 10 4 6 8
+		mu 0 4 12 0 2 13;
+	setAttr ".cd" -type "dataPolyComponent" Index_Data Edge 0 ;
+	setAttr ".cvd" -type "dataPolyComponent" Index_Data Vertex 0 ;
+	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
+	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "DockRoch";
 	rename -uid "AEF1BDDF-4456-1A77-1A16-C2AC02BDE7F0";
-	setAttr ".t" -type "double3" -3 0.74999999999999978 -3 ;
-	setAttr ".s" -type "double3" 6 0.5 6 ;
-	setAttr ".rp" -type "double3" 0 -0.24999999999999978 0 ;
-	setAttr ".sp" -type "double3" 0 -0.49999999999999956 0 ;
-	setAttr ".spt" -type "double3" 0 0.24999999999999978 0 ;
+	setAttr ".rp" -type "double3" -3 0.5 -3 ;
+	setAttr ".sp" -type "double3" -3 0.5 -3 ;
 createNode mesh -n "DockRochShape" -p "DockRoch";
 	rename -uid "4A594597-460C-1CC9-2FDA-44881BF19073";
 	setAttr -k off ".v";
@@ -133,8 +161,8 @@ createNode mesh -n "DockRochShape" -p "DockRoch";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 8 ".pt[0:7]" -type "float3"  0 -1 0 -0.66666669 -1 0 0 
-		2 0 -0.66666669 2 0 0 2 0 -0.66666669 2 0 0 -1 0 -0.66666669 -1 0;
+	setAttr -s 8 ".pt[0:7]" -type "float3"  -5.5 0.5 -0.5 -4.5 0.5 -0.5 
+		-5.5 1.5 -0.5 -4.5 1.5 -0.5 -5.5 1.5 -5.5 -4.5 1.5 -5.5 -5.5 0.5 -5.5 -4.5 0.5 -5.5;
 	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
 		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
 	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
@@ -158,11 +186,8 @@ createNode mesh -n "DockRochShape" -p "DockRoch";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "SeaFloor";
 	rename -uid "E02004E0-4FE1-EEEE-C817-849DC8F6017E";
-	setAttr ".t" -type "double3" -3 0.25 -3 ;
-	setAttr ".s" -type "double3" 6 0.5 6 ;
-	setAttr ".rp" -type "double3" 1.0000002086162567 -0.25 0 ;
-	setAttr ".sp" -type "double3" 0.16666670143604279 -0.5 0 ;
-	setAttr ".spt" -type "double3" 0.83333350718021393 0.25 0 ;
+	setAttr ".rp" -type "double3" -1.9999997913837433 0 -3 ;
+	setAttr ".sp" -type "double3" -1.9999997913837433 0 -3 ;
 createNode mesh -n "SeaFloorShape" -p "SeaFloor";
 	rename -uid "0934BF5D-4D14-EA1D-FC0E-968B54266294";
 	setAttr -k off ".v";
@@ -190,11 +215,8 @@ createNode mesh -n "SeaFloorShape" -p "SeaFloor";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 4 ".pt";
-	setAttr ".pt[0]" -type "float3" 0.33333334 0 0 ;
-	setAttr ".pt[2]" -type "float3" 0.33333334 0 0 ;
-	setAttr ".pt[4]" -type "float3" 0.33333334 0 0 ;
-	setAttr ".pt[6]" -type "float3" 0.33333334 0 0 ;
+	setAttr -s 8 ".pt[0:7]" -type "float3"  -3.5 0.5 -0.5 -0.5 0.5 -0.5 
+		-3.5 0 -0.5 -0.5 0 -0.5 -3.5 0 -5.5 -0.5 0 -5.5 -3.5 0.5 -5.5 -0.5 0.5 -5.5;
 	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
 		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
 	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
@@ -218,11 +240,8 @@ createNode mesh -n "SeaFloorShape" -p "SeaFloor";
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode transform -n "Dock";
 	rename -uid "7F4ED2F3-4EE1-2BAD-CD0B-95804626D7A2";
-	setAttr ".t" -type "double3" -3 1.75 -3 ;
-	setAttr ".s" -type "double3" 2 0.25 6 ;
-	setAttr ".rp" -type "double3" -0.99999994039535522 0.125 0 ;
-	setAttr ".sp" -type "double3" -0.1666666567325592 0 0 ;
-	setAttr ".spt" -type "double3" -0.83333328366279602 0.125 0 ;
+	setAttr ".rp" -type "double3" -3.9999999403953552 1.875 -3 ;
+	setAttr ".sp" -type "double3" -3.9999999403953552 1.875 -3 ;
 createNode mesh -n "DockShape" -p "Dock";
 	rename -uid "BC6591C3-489F-5C75-83D8-BDA4BC5EA6AE";
 	setAttr -k off ".v";
@@ -250,11 +269,9 @@ createNode mesh -n "DockShape" -p "Dock";
 	setAttr ".dcc" -type "string" "Ambient+Diffuse";
 	setAttr ".covm[0]"  0 1 1;
 	setAttr ".cdvm[0]"  0 1 1;
-	setAttr -s 4 ".pt";
-	setAttr ".pt[0]" -type "float3" 0.33333334 0 0 ;
-	setAttr ".pt[2]" -type "float3" 0.33333334 0 0 ;
-	setAttr ".pt[4]" -type "float3" 0.33333334 0 0 ;
-	setAttr ".pt[6]" -type "float3" 0.33333334 0 0 ;
+	setAttr -s 8 ".pt[0:7]" -type "float3"  -3.5 2.25 -0.5 -3.1666665 
+		2.25 -0.5 -3.5 1.5 -0.5 -3.1666665 1.5 -0.5 -3.5 1.5 -5.5 -3.1666665 1.5 -5.5 -3.5 
+		2.25 -5.5 -3.1666665 2.25 -5.5;
 	setAttr -s 8 ".vt[0:7]"  -0.5 -0.5 0.5 0.5 -0.5 0.5 -0.5 0.5 0.5 0.5 0.5 0.5
 		 -0.5 0.5 -0.5 0.5 0.5 -0.5 -0.5 -0.5 -0.5 0.5 -0.5 -0.5;
 	setAttr -s 12 ".ed[0:11]"  0 1 0 2 3 0 4 5 0 6 7 0 0 2 0 1 3 0 2 4 0
@@ -277,20 +294,20 @@ createNode mesh -n "DockShape" -p "Dock";
 	setAttr ".pd[0]" -type "dataPolyComponent" Index_Data UV 0 ;
 	setAttr ".hfd" -type "dataPolyComponent" Index_Data Face 0 ;
 createNode lightLinker -s -n "lightLinker1";
-	rename -uid "952C7159-4974-87B0-182D-77810EBB2232";
+	rename -uid "9D1F997D-4288-A5A5-4924-2693D11096D2";
 	setAttr -s 7 ".lnk";
 	setAttr -s 7 ".slnk";
 createNode shapeEditorManager -n "shapeEditorManager";
-	rename -uid "6B148F1B-4AF2-C5FB-A387-318A119BA72E";
+	rename -uid "39C3A98D-40A5-5969-0D0B-EEBB05AAD1B0";
 createNode poseInterpolatorManager -n "poseInterpolatorManager";
-	rename -uid "608D397D-4433-FAE1-0591-C59773E4894F";
+	rename -uid "6ED937C6-492C-0051-8527-48B13D398354";
 createNode displayLayerManager -n "layerManager";
-	rename -uid "931D79C8-49CE-A3A4-4450-42AB144B0E0D";
+	rename -uid "DD43517B-413C-2F60-E7C9-23A7A2D85883";
 createNode displayLayer -n "defaultLayer";
 	rename -uid "74030B5F-41D5-E539-04B4-96BF63A6BBB5";
 	setAttr ".ufem" -type "stringArray" 0  ;
 createNode renderLayerManager -n "renderLayerManager";
-	rename -uid "AEF390E2-4C93-508E-905E-F78FD5E0AA48";
+	rename -uid "9CF6D901-41F1-CFE2-845C-3D92B4F3B4C8";
 createNode renderLayer -n "defaultRenderLayer";
 	rename -uid "C7742842-455D-C636-EA6B-C5B43EB461CD";
 	setAttr ".g" yes;
@@ -307,9 +324,6 @@ createNode aiAOVDriver -s -n "defaultArnoldDisplayDriver";
 	rename -uid "DFBB31E2-4FAE-168A-54E6-C38933E5D2BA";
 	setAttr ".ai_translator" -type "string" "maya";
 	setAttr ".output_mode" 0;
-createNode polyCube -n "polyCube1";
-	rename -uid "633E7B1D-4FA0-2C7D-90A2-50A3A69B5707";
-	setAttr ".cuv" 4;
 createNode script -n "uiConfigurationScriptNode";
 	rename -uid "846E302F-42E6-4B8B-51A9-C88D891BA71F";
 	setAttr ".b" -type "string" (
@@ -363,7 +377,6 @@ createNode lambert -n "Water1";
 createNode shadingEngine -n "lambert2SG";
 	rename -uid "1AF70824-46A5-514B-2382-5FAFCA841CEC";
 	setAttr ".ihi" 0;
-	setAttr -s 2 ".dsm";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo1";
 	rename -uid "1FBE8207-454E-E381-5EE1-E5A010DB7578";
@@ -400,25 +413,22 @@ createNode shadingEngine -n "lambert1SG";
 	setAttr ".ro" yes;
 createNode materialInfo -n "materialInfo5";
 	rename -uid "47904036-42EF-F058-AF21-FA9E14F98565";
-createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
-	rename -uid "3ADC3A08-475E-AD4B-1782-93A3C461A719";
-	setAttr ".sst" -type "string" "";
 createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
-	rename -uid "B847E6E6-425E-55F3-929E-16878C5588DB";
+	rename -uid "154B42E1-4A4E-BFE0-0A4E-A2831C3DC7C9";
 	setAttr ".tgi[0].tn" -type "string" "Untitled_1";
-	setAttr ".tgi[0].vl" -type "double2" -44.047617297323995 -426.1904592551889 ;
-	setAttr ".tgi[0].vh" -type "double2" 717.85711433206404 44.047617297323995 ;
+	setAttr ".tgi[0].vl" -type "double2" -43.452379225738547 -426.78569732677443 ;
+	setAttr ".tgi[0].vh" -type "double2" 718.45235240364957 43.452379225738547 ;
 	setAttr -s 8 ".tgi[0].ni";
 	setAttr ".tgi[0].ni[0].x" 395.71429443359375;
 	setAttr ".tgi[0].ni[0].y" -51.428569793701172;
 	setAttr ".tgi[0].ni[0].nvs" 1923;
-	setAttr ".tgi[0].ni[1].x" 88.571426391601562;
+	setAttr ".tgi[0].ni[1].x" 395.71429443359375;
 	setAttr ".tgi[0].ni[1].y" -51.428569793701172;
 	setAttr ".tgi[0].ni[1].nvs" 1923;
 	setAttr ".tgi[0].ni[2].x" 395.71429443359375;
 	setAttr ".tgi[0].ni[2].y" -51.428569793701172;
 	setAttr ".tgi[0].ni[2].nvs" 1923;
-	setAttr ".tgi[0].ni[3].x" 395.71429443359375;
+	setAttr ".tgi[0].ni[3].x" 88.571426391601562;
 	setAttr ".tgi[0].ni[3].y" -51.428569793701172;
 	setAttr ".tgi[0].ni[3].nvs" 1923;
 	setAttr ".tgi[0].ni[4].x" 88.571426391601562;
@@ -433,6 +443,9 @@ createNode nodeGraphEditorInfo -n "hyperShadePrimaryNodeEditorSavedTabsInfo";
 	setAttr ".tgi[0].ni[7].x" 395.71429443359375;
 	setAttr ".tgi[0].ni[7].y" -51.428569793701172;
 	setAttr ".tgi[0].ni[7].nvs" 1923;
+createNode mayaUsdLayerManager -n "mayaUsdLayerManager1";
+	rename -uid "5BD820E7-42F8-3438-C680-22818FCBD522";
+	setAttr ".sst" -type "string" "";
 select -ne :time1;
 	setAttr ".o" 1;
 	setAttr ".unw" 1;
@@ -478,7 +491,6 @@ select -ne :hardwareRenderGlobals;
 	setAttr ".btrs" 512;
 select -ne :ikSystem;
 	setAttr -s 4 ".sol";
-connectAttr "polyCube1.out" "WaterShape.i";
 relationship "link" ":lightLinker1" ":initialShadingGroup.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" ":initialParticleSE.message" ":defaultLightSet.message";
 relationship "link" ":lightLinker1" "lambert2SG.message" ":defaultLightSet.message";
@@ -520,17 +532,17 @@ connectAttr "lambert1SG.msg" "materialInfo5.sg";
 connectAttr ":lambert1.msg" "materialInfo5.m";
 connectAttr "lambert2SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[0].dn"
 		;
-connectAttr "Water1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
+connectAttr "lambert5SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[1].dn"
 		;
 connectAttr "lambert3SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[2].dn"
 		;
-connectAttr "lambert5SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
+connectAttr "SearFloor.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[3].dn"
 		;
 connectAttr "Rock.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[4].dn"
 		;
 connectAttr "Wood.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[5].dn"
 		;
-connectAttr "SearFloor.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
+connectAttr "Water1.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[6].dn"
 		;
 connectAttr "lambert4SG.msg" "hyperShadePrimaryNodeEditorSavedTabsInfo.tgi[0].ni[7].dn"
 		;
